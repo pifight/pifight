@@ -1,13 +1,3 @@
-
-// $.get(
-//     "position.json",
-//     {paramOne : 1, paramX : 'abc'},
-//     function(data) {
-//        alert('page content: ' + data);
-//     }
-// );
-
-
 var canvas;
 var ctx;
 var x = 400;
@@ -16,6 +6,9 @@ var dx = 2;
 var dy = 4;
 var WIDTH = 400;
 var HEIGHT = 300;
+
+var robot;
+
 
 function circle(x,y,r) {
   ctx.beginPath();
@@ -43,6 +36,14 @@ function init() {
 
 
 function draw() {
+  $.get(
+      "position.json",
+      {paramOne : 1, paramX : 'abc'},
+      function(data) {
+         robot = data;
+      }
+  );
+
   clear();
   ctx.fillStyle = "#FAF7F8";
   rect(0,0,WIDTH,HEIGHT);
@@ -59,3 +60,4 @@ function draw() {
 }
 
 init();
+
