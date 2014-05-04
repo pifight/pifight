@@ -50,13 +50,8 @@ function draw() {
   ctx.fillStyle = "#444444";
   circle(x, y, 10);
 
-  if (x + dx > WIDTH || x + dx < 0)
-    dx = -dx;
-  if (y + dy > HEIGHT || y + dy < 0)
-    dy = -dy;
-
-  x += dx;
-  y += dy;
+  x = robot.x;
+  y = robot.y;
 }
 
 init();
