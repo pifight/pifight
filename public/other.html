@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>SVG Test</title>
+  </head>
+  <body>
+    <p>Tacos</p>
+    <svg id="svg"></svg>
+
+
+    <script src="snap.svg-min.js"></script>
+    <script>
+      var s = Snap("#svg");
+      window.onload = function () {
+        r1 = s.circle(150, 70, 10);
+        label = s.text(150,70,"1");
+        label.attr({fill: "#fff"});
+      }
+
+      Snap.load("bots/bot1.svg", function (f) {
+          // f.select("polygon[fill='#09B39C']").attr({fill: "#bada55"});
+          // g = f.select("g");
+          s.append(f);
+        });
+    </script> 
+
+
+  </body>
+</html>
