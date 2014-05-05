@@ -1,37 +1,34 @@
 var s = Snap("#svg");
 s.attr({width: 600, height: 300});
 
-$( document ).ready(function() {
-  botSetup();
-  refresh();
-});
 
 function updateBots(botInfo) {
   for (bot in botInfo) {
     if (bot) {
-      console.log("#" + bot);
-      console.log(s.select("#" + bot))
-      s.select("#" + bot).attr({x: botInfo[bot].x, y: botInfo[bot].y});
-      $("#" + bot + "-health").text(botInfo[bot].health);
+      if (s.select("#" + bot)) {
+        s.select("#" + bot).attr({x: botInfo[bot].x, y: botInfo[bot].y});
+        $("#" + bot + "-health").text(botInfo[bot].health);
+      }
     }
   }
 }
 
-function botSetup() {
-  Snap.load("bots/bot1.svg", function (f) {
-      f.select("svg").attr({fill: "#bada55", width: "1.5em",
-        height: "1.5em", x: "10", y: "10", id: "bot1"});
-      s.append(f);
-    });
-  Snap.load("bots/bot2.svg", function (f) {
-      f.select("svg").attr({fill: "#aaaaaa", width: "1.5em",
-        height: "1.5em", x: "50", y: "20", id: "bot2"});
-      s.append(f);
-    });
+function botSetup(botInfo) {
 
-  Snap.load("bots/bot3.svg", function (f) {
-      f.select("svg").attr({fill: "#ad413a", width: "1.5em",
-        height: "1.5em", x: "100", y: "20", id: "bot3"});
+  console.log(botInfo)
+  for (bot in botInfo) {
+    console.log(bot)
+    console.log(botInfo[bot].icon);
+    loadBotIcon(bot, botInfo[bot].icon, botInfo[bot].color);
+  }
+  setTimeout(refresh, 1000);
+}
+
+function loadBotIcon(bot, url, color) {
+  Snap.load(url, function (f) {
+      console.log("loaded: " + bot);
+      f.select("svg").attr({fill: color, width: "1.5em",
+        height: "1.5em", x: "50", y: "20", id: bot});
       s.append(f);
     });
 }
@@ -40,3 +37,7 @@ function refresh() {
   $.ajax({ url: "bot-positions.json", success: updateBots, dataType: "json"});
   setTimeout(refresh, 500);
 }
+
+$( document ).ready(function() {
+  $.ajax({ url: "bot-basics.json", success: botSetup, dataType: "json"});
+});
