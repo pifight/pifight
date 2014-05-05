@@ -1,0 +1,30 @@
+#contestants {    
+  width: 150px;
+  float: left;
+  display: inline;
+  margin: 0;
+  padding: 0;
+  margin-right: 10px;
+}
+
+#arena{
+  border: inset;
+  border-width: 3px;
+  border-color: #da4;
+  background-color: #aaa;
+  height: 200;
+  width: 600;
+  float: left;
+  margin: 0;
+  padding: 0;
+  display: inline;     
+}
+
+#svg {
+  height: 200;
+  width: 600;
+}
+
+body {
+  background-color: #faf;
+}

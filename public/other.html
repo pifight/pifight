@@ -3,28 +3,56 @@
   <head>
     <meta charset="UTF-8" />
     <title>SVG Test</title>
+    <link rel="stylesheet" href="stylesheet.css">
   </head>
   <body>
     <p>Tacos</p>
-    <svg id="svg"></svg>
+    <div id="contestants">
+      <table>
+        <tr>
+          <td>Bot 1</td>
+          <td>100</td>
+        </tr>
+        <tr>
+          <td>Bot 2</td>
+          <td>100</td>
+        </tr>
+        <tr>
+          <td>Bot 3</td>
+          <td>100</td>
+        </tr>
+      </table>
+    </div>
+
+    <div id="arena">
+      <svg id="svg"></svg>
+    </div>
 
 
     <script src="snap.svg-min.js"></script>
     <script>
       var s = Snap("#svg");
+      s.attr({width: 600, height: 300});
       window.onload = function () {
-        r1 = s.circle(150, 70, 10);
-        label = s.text(150,70,"1");
-        label.attr({fill: "#fff"});
-      }
-
-      Snap.load("bots/bot1.svg", function (f) {
-          // f.select("polygon[fill='#09B39C']").attr({fill: "#bada55"});
+        Snap.load("bots/bot1.svg", function (f) {
+            f.select("svg").attr({fill: "#bada55", width: "1.5em", height: "1.5em", x: "10", y: "10"});
+            // g = f.select("g");
+            s.append(f);
+          });
+      Snap.load("bots/bot2.svg", function (f) {
+          f.select("svg").attr({fill: "#aaaaaa", width: "1.5em", height: "1.5em", x: "50", y: "20"});
           // g = f.select("g");
           s.append(f);
         });
+
+      Snap.load("bots/bot3.svg", function (f) {
+          f.select("svg").attr({fill: "#ad413a", width: "1.5em", height: "1.5em", x: "100", y: "20"});
+          // g = f.select("g");
+          s.append(f);
+        });
+
+      }
+
     </script> 
-
-
   </body>
 </html>
