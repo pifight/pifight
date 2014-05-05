@@ -2,6 +2,7 @@ var s = Snap("#svg");
 s.attr({width: 600, height: 300});
 
 $( document ).ready(function() {
+  botSetup();
   refresh();
 });
 
@@ -11,8 +12,7 @@ function updateBots(botInfo) {
   }
 }
 
-
-function refresh() {
+function botSetup() {
   Snap.load("bots/bot1.svg", function (f) {
       f.select("svg").attr({fill: "#bada55", width: "1.5em",
         height: "1.5em", x: "10", y: "10", id: "bot1"});
@@ -32,6 +32,9 @@ function refresh() {
       // g = f.select("g");
       s.append(f);
     });
+}
 
+function refresh() {
   $.ajax({ url: "bot-positions.json", success: updateBots, dataType: "json"});
+  setTimeout(refresh, 500);
 }
