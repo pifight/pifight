@@ -14,17 +14,23 @@ function updateBots(botInfo) {
 }
 
 function botSetup(botInfo) {
+  $("#debug").append("<p>FOO</p>");
 
-  console.log(botInfo)
   for (bot in botInfo) {
-    console.log(bot)
+    console.log(bot);
     console.log(botInfo[bot].icon);
-    loadBotIcon(bot, botInfo[bot].icon, botInfo[bot].color);
+    table = $("#contestants table");
+    rowId = bot + "-row"
+    var tr = '<tr id="' + rowId + '"><td>Gug</td></tr>'
+    table.append(tr);
+    loadBotIcon(bot, botInfo[bot], rowId);
   }
   setTimeout(refresh, 1000);
 }
 
-function loadBotIcon(bot, url, color) {
+function loadBotIcon(bot, botInfo, rowId) {
+  var url = botInfo.icon;
+  var color = botInfo.color;
   Snap.load(url, function (f) {
       console.log("loaded: " + bot);
       f.select("svg").attr({fill: color, width: "1.5em",
