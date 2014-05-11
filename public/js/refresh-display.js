@@ -15,13 +15,14 @@ function updateBots(botInfo) {
 
 function botSetup(botInfo) {
   $("#debug").append("<p>FOO</p>");
+  var table = $("#contestants table");
+  table.empty();
 
   for (bot in botInfo) {
     console.log(bot);
     console.log(botInfo[bot].icon);
-    table = $("#contestants table");
-    rowId = bot + "-row"
-    var tr = '<tr id="' + rowId + '"><td>Gug</td></tr>'
+    rowId = bot + "-row";
+    var tr = '<tr id="' + rowId + '"></tr>';
     table.append(tr);
     loadBotIcon(bot, botInfo[bot], rowId);
   }
@@ -31,12 +32,10 @@ function botSetup(botInfo) {
 function loadBotIcon(bot, botInfo, rowId) {
   var url = botInfo.icon;
   var color = botInfo.color;
-  Snap.load(url, function (f) {
-      console.log("loaded: " + bot);
-      f.select("svg").attr({fill: color, width: "1.5em",
-        height: "1.5em", x: "50", y: "20", id: bot});
-      s.append(f);
-    });
+  row = $("#" + rowId);
+  row.append('<td><img src="' + url + '"/></td>')
+  row.append('<td>' + botInfo.name + '</td>')
+  row.append('<td>' + botInfo.health + '</td>')
 }
 
 function refresh() {
