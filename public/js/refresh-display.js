@@ -3,10 +3,13 @@ s.attr({width: 600, height: 300});
 
 
 function updateBots(botInfo) {
+  console.log("updateBots");
   for (bot in botInfo) {
+    console.log("updateBots: " + bot);
     if (bot) {
       if (s.select("#" + bot)) {
         s.select("#" + bot).attr({x: botInfo[bot].x, y: botInfo[bot].y});
+        console.log("#" + bot + "-health");
         $("#" + bot + "-health").text(botInfo[bot].health);
       }
     }
@@ -35,12 +38,18 @@ function loadBotIcon(bot, botInfo, rowId) {
   row = $("#" + rowId);
   row.append('<td><img src="' + url + '"/></td>')
   row.append('<td>' + botInfo.name + '</td>')
-  row.append('<td>' + botInfo.health + '</td>')
+  row.append('<td id="' + bot + '-health">' + botInfo.health + '</td>')
+  Snap.load(url, function (f) {
+      console.log("loaded: " + bot);
+      f.select("svg").attr({fill: color, width: "1.5em",
+        height: "1.5em", x: "50", y: "20", id: bot});
+      s.append(f);
+    });
 }
 
 function refresh() {
   $.ajax({ url: "bot-positions.json", success: updateBots, dataType: "json"});
-  setTimeout(refresh, 500);
+  // setTimeout(refresh, 500);
 }
 
 $( document ).ready(function() {
