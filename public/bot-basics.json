@@ -5,6 +5,8 @@
   		"color": "#552245",  "health": 100},
   "bot3":{"name": "Veldspar", "icon": "bots/bot3.svg", 
 		"color": "#11bb11",  "health": 100},
-  "bot4":{"name": "cromulent", "icon": "bots/bot4.svg",
-		"color": "#654321",  "health": 100}
+  "bot4":{"name": "Cromulent", "icon": "bots/bot4.svg",
+		"color": "#654321",  "health": 100},
+  "bot5":{"name": "Zazz", "icon": "bots/bot5.svg",
+		"color": "#222222",  "health": 100}
 }

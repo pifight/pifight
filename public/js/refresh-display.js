@@ -7,10 +7,12 @@ function updateBots(botInfo) {
   for (bot in botInfo) {
     console.log("updateBots: " + bot);
     if (bot) {
+      console.log("key not empty");
       if (s.select("#" + bot)) {
         s.select("#" + bot).attr({x: botInfo[bot].x, y: botInfo[bot].y});
         console.log("#" + bot + "-health");
         $("#" + bot + "-health").text(botInfo[bot].health);
+        console.log("health set");
       }
     }
   }
@@ -53,7 +55,7 @@ function addToArena(bot, botInfo) {
 }
 
 function refresh() {
-  $.ajax({ url: "bot-positions.json", success: updateBots, dataType: "json"});
+  $.ajax({ url: "bot-positions.json?shiftuf", success: updateBots, dataType: "json"});
   // setTimeout(refresh, 500);
 }
 
