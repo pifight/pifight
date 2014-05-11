@@ -22,10 +22,8 @@ function botSetup(botInfo) {
   table.empty();
 
   for (bot in botInfo) {
-    console.log(bot);
-    console.log(botInfo[bot].icon);
     addToContestantList(bot, botInfo[bot]);
-    loadBotIcon(bot, botInfo[bot]);
+    addToArena(bot, botInfo[bot]);
   }
   setTimeout(refresh, 1000);
 }
@@ -43,7 +41,7 @@ function addToContestantList(bot, botInfo) {
   console.log("BAZ");
 }
 
-function loadBotIcon(bot, botInfo) {
+function addToArena(bot, botInfo) {
   var url = botInfo.icon;
   var color = botInfo.color;
   Snap.load(url, function (f) {

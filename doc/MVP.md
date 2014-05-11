@@ -4,7 +4,6 @@ Pi Fight MVP
 
 - readme - what is it?
 - FE tolerates 1-5 contestants
-- FE displays bot names
 - BE serves bot positions
 - BE serves icon for each bot
 - BE serves bot names and health
@@ -30,3 +29,4 @@ Pi Fight MVP
 ## Done
 - Front end displays position of each bot graphically
 - Front end displays bot health
+- FE displays bot names
