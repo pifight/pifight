@@ -3,13 +3,13 @@ Pi Fight MVP
 ## Pending
 
 - readme - what is it?
-- FE tolerates 1-5 contestants
 - BE serves bot positions
 - BE serves icon for each bot
 - BE serves bot names and health
 - BE serves shots and pings
 
 - bot protocol documented
+- BE knows how to contact bots
 - BE notifies each bot of its position & health
 - BE processes commands: speedxy, shoot, ping
 - BE detects bot collisions w shots, pings, walls
@@ -30,3 +30,4 @@ Pi Fight MVP
 - Front end displays position of each bot graphically
 - Front end displays bot health
 - FE displays bot names
+- FE tolerates 1-5 contestants
