@@ -24,21 +24,28 @@ function botSetup(botInfo) {
   for (bot in botInfo) {
     console.log(bot);
     console.log(botInfo[bot].icon);
-    rowId = bot + "-row";
-    var tr = '<tr id="' + rowId + '"></tr>';
-    table.append(tr);
-    loadBotIcon(bot, botInfo[bot], rowId);
+    addToContestantList(bot, botInfo[bot]);
+    loadBotIcon(bot, botInfo[bot]);
   }
   setTimeout(refresh, 1000);
 }
 
-function loadBotIcon(bot, botInfo, rowId) {
+function addToContestantList(bot, botInfo) {
+  console.log("addToContestantList: " + bot);
+  var rowId = bot + "-row";
+  var tr = '<tr id="' + rowId + '"></tr>';
+  $("#contestants table").append(tr);
+
+  var row = $("#" + rowId);
+  row.append('<td><img src="' + botInfo.icon + '"/></td>');
+  row.append('<td>' + botInfo.name + '</td>');
+  row.append('<td id="' + bot + '-health">' + botInfo.health + '</td>');
+  console.log("BAZ");
+}
+
+function loadBotIcon(bot, botInfo) {
   var url = botInfo.icon;
   var color = botInfo.color;
-  row = $("#" + rowId);
-  row.append('<td><img src="' + url + '"/></td>')
-  row.append('<td>' + botInfo.name + '</td>')
-  row.append('<td id="' + bot + '-health">' + botInfo.health + '</td>')
   Snap.load(url, function (f) {
       console.log("loaded: " + bot);
       f.select("svg").attr({fill: color, width: "1.5em",
