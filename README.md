@@ -25,14 +25,12 @@ actual robot battle. Work in progress
 - [TODO.md](doc/TODO.md) Other needed work
 - [Protocol.md](doc/Protocol.md) Description of the protocol you can use to write your
 own robots
-- Rules.md Suggested rules for comducting a robot battle
+- [Rules.md](doc/Rules.md) Suggested rules for comducting a robot battle
 
 ## Installation
 
-[Anchor](target)
-
-Elixir
-Sass
+- Elixir
+- Sassc
 
 ## Development
 
