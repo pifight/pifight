@@ -6,7 +6,7 @@ communicates with each robot, determnes what happens, and displays the
 results. If individual robots are players, this server is like the
 game master.
 
-(diagram)
+<img src="doc/PiFight_diagram.pdf">
 
 The protocol for communicatng with robots is described in doc/Protocol.md.
 
@@ -20,14 +20,16 @@ computing resources available and nobody has to break the bank.
 In addition to this README you can find information in the `doc`
 directory including:
 
-- MVP.md List of the minimum features necessary to conduct an
+- [MVP.md](doc/MVP.md) List of the minimum features necessary to conduct an
 actual robot battle. Work in progress
-- TODO.md Other needed work
-- Protocol.md Description of the protocol you can use to write your
+- [TODO.md](doc/TODO.md) Other needed work
+- [Protocol.md](doc/Protocol.md) Description of the protocol you can use to write your
 own robots
 - Rules.md Suggested rules for comducting a robot battle
 
 ## Installation
+
+[Anchor](target)
 
 Elixir
 Sass
