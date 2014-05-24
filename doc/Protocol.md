@@ -13,7 +13,8 @@ To prevent individual robots from spamming the server, robots only
 speak when spoken to. Each robot must listen for HTTP requests on
 port 80 and respond with JSON.
 
-Any response larger than 1K or longer than 1 second will be ignored.
+Any response larger than 1K or longer than 500 millisecnds will be
+ignored.
 
 Robots must respond the the following calls:
 
@@ -43,8 +44,14 @@ object: wall|robot, only with pong & collision
 damage: 0-100, only with hit & collision
 
 #### Response
-speed: [x,y] integers from -100 to 100
+One or both of movement and action.
+If movement is omitted the bot continues with the
+same speed and direction.
 
-ping: direction
-shoot: direction, range
+Movement consists of both:
+  - speed: integer from 0 to 100
+  - facing: direction (degrees? radians?)
 
+Action is only one of:
+- ping: direction
+- shoot: direction, range

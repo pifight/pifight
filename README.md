@@ -35,5 +35,8 @@ own robots
 ## Development
 
 Your pull requests are very welcome! The front end code could especially
-use some love from somebody with Javascript and/or CSS chops. Just make
-sure the tests all pass.
+use some love from somebody with Javascript and/or CSS chops. 
+
+I can't merge your pull request unless the tests still pass, but I will
+happily work with you to make that happen. Go ahead and submit your 
+change and I'll take a look. Thanks!

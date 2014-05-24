@@ -1,17 +1,23 @@
 Pi Fight MVP
 
-## Pending
+## Pending for 0.1.0
 
-- readme - what is it?
+- CI working
 - BE serves bot positions
 - BE serves icon for each bot
 - BE serves bot names and health
 - BE serves shots and pings
 
+- pick a license
+
+## Pending for 1.0
+
 - bot protocol documented
 - BE knows how to contact bots
+- BE starts battle
+- BE ends battle
 - BE notifies each bot of its position & health
-- BE processes commands: speedxy, shoot, ping
+- BE processes commands: move, shoot, ping
 - BE detects bot collisions w shots, pings, walls
 - BE establishes starting positions
 
@@ -24,10 +30,10 @@ Pi Fight MVP
 - bot protocol example implementation
 - rules documented
 - BE installation & setup docs
-- pick a license
 
 ## Done
 - Front end displays position of each bot graphically
 - Front end displays bot health
 - FE displays bot names
 - FE tolerates 1-5 contestants
+- readme - what is it?
