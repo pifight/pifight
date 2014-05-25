@@ -37,11 +37,17 @@ The image will be displayed as 1.5em square and a random color.
 
 ### POST update
 
-event: start | position | pong | hit | collision | end
+event: start | end | position | pong | hit | collision
 position: x/y coordinates
 health: integer 0-100
-object: wall|robot, only with pong & collision
+object: only with pong & collision
+  - type: wall|robot
+  - direction: in case you forgot
+  - distance: distance to object
 damage: 0-100, only with hit & collision
+
+**Unresolved:** What are the units for speed and direction?
+How frequent are clock ticks?
 
 #### Response
 One or both of movement and action.
@@ -55,3 +61,48 @@ Movement consists of both:
 Action is only one of:
 - ping: direction
 - shoot: direction, range
+
+### Actions
+
+#### ping
+Ping sends a LIDAR ping in a particular direction. The
+ping will detect the first robot or wall it encounters.
+The pinging robot will receive a `pong` message indicating
+the distance, direction, and type of object encountered.
+The `pong` will probably but not necessarily be the next
+message received. Each `ping` will generate exactly one
+`pong` in response.
+
+#### shoot
+Shoot fires a shell in a given direction. The shell will
+explode at a given distance from the shooter. Robots within
+HOWMANY units of the explosion will be damaged. The closer
+the explosion the more damage the robot receives. 
+Explosions can hurt multiple robots and even your own
+robot.
+
+### Events
+
+#### start
+
+Start signals the beginning of a new match. The bot will
+be told its initial position and health and can begin
+acting immediately.
+
+#### end
+
+End indicates the match is over. Bots have 10 seconds to
+perform and necessary cleanup or recordkeeping before
+the next match may begin.
+
+#### position
+In the absence of any other events, on each clock tick
+the Arena Server will send each bot its current position
+and health.
+
+#### pong
+Pong comes in response to a previously sent ping.  
+
+#### hit
+
+#### collision
