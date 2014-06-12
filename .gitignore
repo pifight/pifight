@@ -1,2 +1,6 @@
 Gemfile.lock
 .sass-cache
+/_build
+/deps
+erl_crash.dump
+*.ez

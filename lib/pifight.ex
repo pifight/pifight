@@ -1,0 +1,2 @@
+defmodule Pifight do
+end
