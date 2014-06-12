@@ -9,22 +9,17 @@ defmodule Pifight.Mixfile do
   end
 
   # Configuration for the OTP application
-  #
   # Type `mix help compile.app` for more information
   def application do
-    [applications: []]
+    [ applications: [:cowboy, :plug],
+      mod: { Pifight, []}
+    ]
   end
 
-  # Dependencies can be hex.pm packages:
-  #
   #   {:mydep, "~> 0.3.0"}
-  #
-  # Or git/path repositories:
-  #
   #   {:mydep, git: "https://github.com/elixir-lang/mydep.git", tag: "0.1"}
-  #
-  # Type `mix help deps` for more examples and options
   defp deps do
-    []
+    [{ :plug, github: "elixir-lang/plug" },
+      { :cowboy, github: "extend/cowboy" }]
   end
 end
