@@ -25,7 +25,7 @@ for robots. For each host it finds listening on port 80, the
 Arena Server will ask for the robot's basic information.
 
 The response must include:
-- name: UTF-8, human-readable name, 25 characters max. All 
+- name: UTF-8, human-readable name, 25 characters max. All
 whitespace will be removed by the Arena Server
 - protocol: A list of protocol versions spoken
 
@@ -40,11 +40,11 @@ The image will be displayed as 1.5em square and a random color.
 event: start | end | position | pong | hit | collision
 position: x/y coordinates
 health: integer 0-100
-object: only with pong & collision
+object: (only with pong & collision)
   - type: wall|robot
   - direction: in case you forgot
   - distance: distance to object
-damage: 0-100, only with hit & collision
+damage: 0-100, (only with hit & collision)
 
 **Unresolved:** What are the units for speed and direction?
 How frequent are clock ticks?
@@ -77,7 +77,7 @@ message received. Each `ping` will generate exactly one
 Shoot fires a shell in a given direction. The shell will
 explode at a given distance from the shooter. Robots within
 HOWMANY units of the explosion will be damaged. The closer
-the explosion the more damage the robot receives. 
+the explosion the more damage the robot receives.
 Explosions can hurt multiple robots and even your own
 robot.
 
@@ -101,7 +101,7 @@ the Arena Server will send each bot its current position
 and health.
 
 #### pong
-Pong comes in response to a previously sent ping.  
+Pong comes in response to a previously sent ping.
 
 #### hit
 

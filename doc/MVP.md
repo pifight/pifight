@@ -2,17 +2,17 @@ Pi Fight MVP
 
 ## Pending for 0.1.0
 
-- CI working
 - BE serves bot positions
 - BE serves icon for each bot
-- BE serves bot names and health
+- BE serves bot names and healthµ˜,
 - BE serves shots and pings
+- CI working
 
 - pick a license
 
 ## Pending for 1.0
 
-- bot protocol documented
+- bot protocol units specified, explicit examples¢
 - BE knows how to contact bots
 - BE starts battle
 - BE ends battle
@@ -37,3 +37,4 @@ Pi Fight MVP
 - FE displays bot names
 - FE tolerates 1-5 contestants
 - readme - what is it?
+- bot protocol basics documented
