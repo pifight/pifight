@@ -1,0 +1,13 @@
+
+ENV["VAGRANT_DEFAULT_PROVIDER"] = "docker"
+
+Vagrant.configure("2") do |config|
+  config.vm.define "app" do |app|
+    app.vm.provider "docker" do |d|
+      d.has_ssh = false
+      d.build_dir = "."
+      d.remains_running = false
+    end
+  end
+end
+

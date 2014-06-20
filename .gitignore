@@ -4,3 +4,4 @@ Gemfile.lock
 /deps
 erl_crash.dump
 *.ez
+.vagrant
