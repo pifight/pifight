@@ -21,7 +21,7 @@ Pi Fight MVP
 - BE detects bot collisions w shots, pings, walls
 - BE establishes starting positions
 
-- BE updates bot positions based on speedxy
+- BE updates bot positions based on movement
 - BE updates bot health based on shots
 - BE returns bot/wall from pings
 
