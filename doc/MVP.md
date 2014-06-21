@@ -2,9 +2,7 @@ Pi Fight MVP
 
 ## Pending for 0.1.0
 
-- BE serves bot positions
-- BE serves icon for each bot
-- BE serves bot names and healthµ˜,
+- FE can get bot info from file: url or from back end
 - BE serves shots and pings
 - CI working
 
@@ -38,3 +36,6 @@ Pi Fight MVP
 - FE tolerates 1-5 contestants
 - readme - what is it?
 - bot protocol basics documented
+- BE serves bot names and health
+- BE serves bot positions
+- BE serves icon for each bot
