@@ -1,6 +1,10 @@
-%{"cowboy": {:git, "git://github.com/extend/cowboy.git", "ee3ad5e51005b453230804036e092e1d2ceebe4f", []},
+%{"cowboy": {:git, "git://github.com/extend/cowboy.git", "14c1414b4b4f57977bcd7c0ac7fea5e97fb63280", []},
   "cowlib": {:git, "git://github.com/extend/cowlib.git", "e2ffefe828b918486e2cd76e44c54ae9b62c616e", [ref: "0.6.2"]},
-  "httpotion": {:git, "git://github.com/myfreeweb/httpotion.git", "37e180343ed21c733a1a0b740d9d8d7081b7f721", []},
+  "ex_conf": {:package, "0.1.2"},
+  "httpotion": {:git, "git://github.com/myfreeweb/httpotion.git", "c20be2e821c08e607b9c0247c83e909d178ee6c0", []},
   "ibrowse": {:git, "git://github.com/cmullaparthi/ibrowse.git", "7871e2ebe8811efb64e1917e2de455fa87e8dfe3", [tag: "v4.1.0"]},
-  "plug": {:git, "git://github.com/elixir-lang/plug.git", "014acd6ffb2678207a2c86f868218ef2b1870123", []},
+  "inflex": {:package, "0.2.3"},
+  "jazz": {:package, "0.1.1"},
+  "phoenix": {:package, "0.2.10"},
+  "plug": {:package, "0.5.0"},
   "ranch": {:git, "git://github.com/extend/ranch.git", "3189ef2d47843945efc96c224963380462c33d40", [ref: "0.10.0"]}}

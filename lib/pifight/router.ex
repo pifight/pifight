@@ -1,12 +1,6 @@
 defmodule Pifight.Router do
-  use Plug.Router
-  import Plug.Conn
+  use Phoenix.Router
 
-  get "/bots/:id" do
-    conn |> resp(200, inspect(id))
-  end
-
-  match _ do
-    send_resp(conn, 200, "Hello, world!")
-  end
+  plug Plug.Static, at: "/static", from: :pifight
+  get "/", Pifight.Controllers.Pages, :index, as: :page
 end
