@@ -25,9 +25,12 @@ Pi Fight MVP
 
 - FE displays shots and pings
 
+- how large is the arena?
 - bot protocol example implementation
+- document how to write a bot
 - rules documented
 - BE installation & setup docs
+- Ready-made docker images for back end and some test bots
 
 ## Done
 - Front end displays position of each bot graphically
