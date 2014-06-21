@@ -1,5 +1,8 @@
 # Pi Fight
 
+[![Gitter chat](https://badges.gitter.im/pifight.png)](https://gitter.im/pifight)
+[![Build Status](https://travis-ci.org/pifight/pifight.svg?branch=master)](https://travis-ci.org/pifight/pifight)
+
 Pi Fight allows virtual robots to fight one another. Each robot resides
 on its own separate machine. The code here is a central server which
 communicates with each robot, determnes what happens, and displays the
