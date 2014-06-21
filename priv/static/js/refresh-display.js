@@ -1,25 +1,28 @@
 var s = Snap("#svg");
 s.attr({width: 600, height: 300});
 
+var refreshUrl = "/bots"
+var rosterUrl = "/roster"
+var refreshIntervalMs = 500
+
+if (window.location.protocol == "file:") {
+  refreshUrl = "test/bots.json"
+  rosterUrl = "test/roster.json"
+}
+
 
 function updateBots(botInfo) {
-  console.log("updateBots");
   for (bot in botInfo) {
-    console.log("updateBots: " + bot);
     if (bot) {
-      console.log("key not empty");
       if (s.select("#" + bot)) {
         s.select("#" + bot).attr({x: botInfo[bot].x, y: botInfo[bot].y});
-        console.log("#" + bot + "-health");
         $("#" + bot + "-health").text(botInfo[bot].health);
-        console.log("health set");
       }
     }
   }
 }
 
 function botSetup(botInfo) {
-  $("#debug").append("<p>FOO</p>");
   var table = $("#contestants table");
   table.empty();
 
@@ -31,7 +34,6 @@ function botSetup(botInfo) {
 }
 
 function addToContestantList(bot, botInfo) {
-  console.log("addToContestantList: " + bot);
   var rowId = bot + "-row";
   var tr = '<tr id="' + rowId + '"></tr>';
   $("#contestants table").append(tr);
@@ -40,14 +42,12 @@ function addToContestantList(bot, botInfo) {
   row.append('<td><img src="' + botInfo.icon + '"/></td>');
   row.append('<td>' + botInfo.name + '</td>');
   row.append('<td id="' + bot + '-health">' + botInfo.health + '</td>');
-  console.log("BAZ");
 }
 
 function addToArena(bot, botInfo) {
   var url = botInfo.icon;
   var color = botInfo.color;
   Snap.load(url, function (f) {
-      console.log("loaded: " + bot);
       f.select("svg").attr({fill: color, width: "1.5em",
         height: "1.5em", x: "50", y: "20", id: bot});
       s.append(f);
@@ -55,10 +55,12 @@ function addToArena(bot, botInfo) {
 }
 
 function refresh() {
-  $.ajax({ url: "bot-positions.json?shiftuf", success: updateBots, dataType: "json"});
-  // setTimeout(refresh, 500);
+  $.ajax({ url: refreshUrl, success: updateBots, dataType: "json"});
+  if (refreshIntervalMs) {
+    setTimeout(refresh, refreshIntervalMs);
+  }
 }
 
 $( document ).ready(function() {
-  $.ajax({ url: "bot-basics.json", success: botSetup, dataType: "json"});
+  $.ajax({ url: rosterUrl, success: botSetup, dataType: "json"});
 });

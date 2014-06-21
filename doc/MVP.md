@@ -2,9 +2,9 @@ Pi Fight MVP
 
 ## Pending for 0.1.0
 
-- FE can get bot info from file: url or from back end
 - BE serves shots and pings
 - CI working
+- get sass working again in new location
 
 - pick a license
 
@@ -39,3 +39,4 @@ Pi Fight MVP
 - BE serves bot names and health
 - BE serves bot positions
 - BE serves icon for each bot
+- FE can get bot info from file: url or from back end

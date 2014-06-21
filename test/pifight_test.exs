@@ -5,7 +5,7 @@ defmodule PifightTest do
   test "serving bot roster" do
     conn = simulate_request(Pifight.Router, :get, "/roster")
     assert conn.status == 200
-    assert String.contains?(conn.resp_body, "Shinkansen")
+    assert String.contains?(conn.resp_body, "Cromulent")
     assert String.contains?(content_type(conn), "application/json")
   end
 
