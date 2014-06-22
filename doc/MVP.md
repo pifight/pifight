@@ -2,10 +2,7 @@ Pi Fight MVP
 
 ## Pending for 0.1.0
 
-- BE serves shots and pings
-- CI working
 - get sass working again in new location
-
 - pick a license
 
 ## Pending for 1.0
@@ -43,3 +40,5 @@ Pi Fight MVP
 - BE serves bot positions
 - BE serves icon for each bot
 - FE can get bot info from file: url or from back end
+- CI working
+- BE serves shots and pings

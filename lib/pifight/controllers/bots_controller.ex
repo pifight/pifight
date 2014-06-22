@@ -1,15 +1,25 @@
 defmodule Pifight.Controllers.Bots do
   use Phoenix.Controller
+  use Jazz
+
+  defimpl JSON.Encoder, for: Tuple do
+    def to_json(self, _options) do
+      case self do
+        {:ping, bot} -> ["ping", to_string(bot)]
+        {:boom, x, y} -> ["boom", x, y]
+      end
+    end
+  end
 
   def index(conn) do
-    json conn, '''
-{
-  "bot1":{"x": 450, "y": 50, "health": 100},
-  "bot2":{"x": 40, "y": 40, "health": 51},
-  "bot3":{"x": 150, "y": 100, "health": 84},
-  "bot4":{"x": 200, "y": 140, "health": 82},
-  "bot5":{"x": 370, "y": 220, "health": 15}
-}
-'''
+    bots = %{bot1: %{health: 100, x: 450, y: 50},
+      bot2: %{health: 51, x: 40, y: 40},
+      bot3: %{health: 84, x: 150, y: 100},
+      bot4: %{health: 82, x: 200, y: 140},
+      bot5: %{health: 15, x: 370, y: 220}}
+    events = [{:ping, :bot1}, {:boom, 200, 200}]
+    update = %{bots: bots, events: events}
+
+    json conn, JSON.encode!(update)
   end
 end

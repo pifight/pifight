@@ -25,7 +25,8 @@ defmodule Pifight.Mixfile do
     [
       {:phoenix, "0.2.10"},
       {:cowboy, "~> 0.10.0", github: "extend/cowboy", optional: true},
-      {:httpotion, github: "myfreeweb/httpotion"}
+      {:httpotion, github: "myfreeweb/httpotion"},
+      {:jazz, "0.1.1", [hex_app: :jazz]}
     ]
   end
 end
