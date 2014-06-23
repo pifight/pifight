@@ -13,7 +13,6 @@
 - sounds for shots, pings, and collisions
 - lots of example implementations
 - front end protocol documented
-
+- bot protocol prevent hax
 - bots provide icons
   - icon constraints enforced
-

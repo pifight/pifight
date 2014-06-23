@@ -1,10 +1,25 @@
-The Pi Fight back end is written in Elixir using the Phoenix web framework. The front end is a combination of HTML, Sass, and Javascript.
+# Installing Pi Fight
 
-To work on the Pi Fight code you'll need to install:
+The Pi Fight back end is written in Elixir using the Phoenix web framework.
+The front end is a combination of HTML, Sass, and Javascript.
 
-- Elixir
-- Sassc
+To run Pi Fight you must [install Elixir](http://elixir-lang.org/getting_started/1.html).  To modify the web interface you
+will also need [Sass](http://sass-lang.com/install).
 
-On a Mac both of these can be installed easily with Homebrew.
+## The first time you run
 
-Once the prerequisites are installed, launch the server with `mix phoenix.start`
+You'll need to fetch some libraries.
+
+    mix deps.get
+
+## Launching the server
+
+    mix phoenix.start
+
+## Running the tests
+
+    mix test
+
+## Compiling your Sass changes
+
+    sass --watch  sass:priv/static/css
