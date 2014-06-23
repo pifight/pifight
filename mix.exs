@@ -5,7 +5,8 @@ defmodule Pifight.Mixfile do
     [ app: :pifight,
       version: "0.0.1",
       elixir: "~> 0.14.0",
-      deps: deps ]
+      deps: deps,
+      test_coverage: [tool: ExCoveralls] ]
   end
 
   # Configuration for the OTP application
@@ -26,7 +27,8 @@ defmodule Pifight.Mixfile do
       {:phoenix, "0.2.10"},
       {:cowboy, "~> 0.10.0", github: "extend/cowboy", optional: true},
       {:httpotion, github: "myfreeweb/httpotion"},
-      {:jazz, "0.1.1", [hex_app: :jazz]}
+      {:jazz, "0.1.1", [hex_app: :jazz]},
+      {:excoveralls, github: "parroty/excoveralls"}
     ]
   end
 end

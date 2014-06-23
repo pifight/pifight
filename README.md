@@ -1,7 +1,9 @@
 # Pi Fight
 
-[![Gitter chat](https://badges.gitter.im/pifight.png)](https://gitter.im/pifight)
+[![Version 0.1.0](http://img.shields.io/badge/version-0.1.0-orange.svg?style=flat)](http://semver.org)
 [![Build Status](https://travis-ci.org/pifight/pifight.svg?branch=master)](https://travis-ci.org/pifight/pifight)
+[![Coverage Status](https://img.shields.io/coveralls/pifight/pifight.svg)](https://coveralls.io/r/pifight/pifight?branch=)
+[![Gitter chat](https://badges.gitter.im/pifight.png)](https://gitter.im/pifight)
 
 Pi Fight allows virtual robots to fight one another. Each robot resides
 on its own separate machine. The code here is a central server which
