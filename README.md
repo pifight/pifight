@@ -1,6 +1,6 @@
 # Pi Fight
 
-[![Version 0.1.0](http://img.shields.io/badge/version-0.1.0-orange.svg?style=flat)](http://semver.org)
+[![Version 0.1.0](http://img.shields.io/badge/version-0.1.0-orange.svg)](http://semver.org)
 [![Build Status](https://travis-ci.org/pifight/pifight.svg?branch=master)](https://travis-ci.org/pifight/pifight)
 [![Coverage Status](https://img.shields.io/coveralls/pifight/pifight.svg)](https://coveralls.io/r/pifight/pifight?branch=)
 [![Gitter chat](https://badges.gitter.im/pifight.png)](https://gitter.im/pifight)
@@ -49,7 +49,7 @@ change and I'll take a look. Thanks!
 
 ## Legal
 
-Copyright (C) 2014 Michael Kennedy Brodhead
+Copyright (c) 2014 Michael Kennedy Brodhead
 
 This program is free software: you can redistribute it and/or modify it under
 the terms of the [GNU General Public License](doc/LICENSE.txt) as published by
