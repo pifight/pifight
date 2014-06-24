@@ -17,8 +17,13 @@ defmodule Pifight.Robot do
     new_speed = state.speed
     if new_x > Arena.max_x do
       new_x = Arena.max_x
-      new_speed= -state.speed
+      new_speed = -state.speed
     end
+    if new_x < Arena.min_x do
+      new_x = Arena.min_x
+      new_speed = -state.speed
+    end
+
     state |>
     Map.put(:x, new_x) |>
     Map.put(:speed, new_speed) |>

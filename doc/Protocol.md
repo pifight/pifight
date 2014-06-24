@@ -8,7 +8,7 @@ This document describes version 1 of the protocol.
 >**Unresolved:**
 
 >- How large is the arena?
-- What are the units for speed and direction?
+- What are the units and direction?
 - How frequent are clock ticks?
 - How damaging are shots?
 
@@ -65,7 +65,7 @@ same speed and direction.
 Movement consists of both:
 
 - speed: integer from 0 to 100
-- facing: direction (degrees? radians?)
+- heading: direction in degrees
 
 Action is only one of:
 

@@ -18,29 +18,37 @@ defmodule Pifight.RobotTest do
   test "reverse direction at arena right edge" do
     {:ok, bot} = Robot.start(%{x: 200, y: 200})
     Robot.move(bot, %{speed: 2, heading: 90})
-    Robot.tick(bot)
+    tick_until_heads_left(bot)
   end
 
   test "reverse direction at arena left edge" do
     {:ok, bot} = Robot.start(%{x: 200, y: 200})
-    Robot.move(bot, %{speed: 2, heading: 90})
-    tick_until_direction_change(bot)
+    Robot.move(bot, %{speed: -2, heading: 90})
+    tick_until_heads_right(bot)
   end
 
-  def tick_until_direction_change(bot) do
+  def tick_until_heads_left(bot) do
     [x, y] = Robot.position(bot)
-    tick_until_direction_change(bot, x, y)
+    lt = &(&1 < &2)
+    tick_until_direction_change(bot, lt, x, y)
   end
 
-  def tick_until_direction_change(bot, prevx, prevy) do
+  def tick_until_heads_right(bot) do
+    [x, y] = Robot.position(bot)
+    gt = &(&1 > &2)
+    tick_until_direction_change(bot, gt, x, y)
+  end
+
+  def tick_until_direction_change(bot, comparitor, prevx, prevy) do
     Robot.tick(bot)
     [x, y] = Robot.position(bot)
     assert y == prevy
     assert x <= Arena.max_x
-    if x < prevx do
+    assert x >= Arena.min_x
+    if comparitor.(x, prevx) do
       true
     else
-      tick_until_direction_change(bot, x, y)
+      tick_until_direction_change(bot, comparitor, x, y)
     end
   end
 
