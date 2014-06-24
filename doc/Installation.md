@@ -16,6 +16,8 @@ You'll need to fetch some libraries.
 
     mix phoenix.start
 
+The arena page will be available at http://localhost:4000/static/index.html
+
 ## Running the tests
 
     mix test

@@ -41,7 +41,7 @@ See [Installation.md](doc/Installation.md)
 ## Development
 
 Your pull requests are very welcome! The front end code could especially
-use some love from somebody with Javascript and/or CSS chops.
+use some love from somebody with CSS and/or Javascript chops.
 
 I can't merge your pull request unless the tests still pass, but I will
 happily work with you to make that happen. Go ahead and submit your
