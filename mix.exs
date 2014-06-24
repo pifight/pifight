@@ -28,7 +28,8 @@ defmodule Pifight.Mixfile do
       {:cowboy, "~> 0.10.0", github: "extend/cowboy", optional: true},
       {:httpotion, github: "myfreeweb/httpotion"},
       {:jazz, "0.1.1", [hex_app: :jazz]},
-      {:excoveralls, github: "parroty/excoveralls"}
+      {:excoveralls, github: "parroty/excoveralls"},
+      {:exactor, "~> 0.5.0"}
     ]
   end
 end
