@@ -10,7 +10,6 @@ defmodule Pifight.RefereeTest do
 
   test "sends ticks to bots" do
     bot = Referee.get_bot(1)
-    IO.inspect bot
     [initial_x, _] = Robot.position(bot)
     Referee.bout_start
     :timer.sleep(500)

@@ -13,7 +13,7 @@ defmodule Pifight.Robot do
   end
 
   defcast tick, state: state do
-    new_x = state.x + state.speed
+    new_x = state.x + (state.speed * Arena.speed_scale)
     new_speed = state.speed
     if new_x > Arena.max_x do
       new_x = Arena.max_x

@@ -12,7 +12,7 @@ defmodule Pifight.RobotTest do
     {:ok, bot} = Robot.start(%{x: 200, y: 200})
     Robot.move(bot, %{speed: 2, heading: 90})
     Robot.tick(bot)
-    assert Robot.position(bot) == [202, 200]
+    assert Robot.position(bot) == [201, 200]
   end
 
   test "reverse direction at arena right edge" do
@@ -51,8 +51,6 @@ defmodule Pifight.RobotTest do
       tick_until_direction_change(bot, comparitor, x, y)
     end
   end
-
-
 
   # SOHCAHTOA
   # cos(t) = a/h
