@@ -12,6 +12,7 @@ defmodule Pifight.Controllers.Bots do
   end
 
   def index(conn) do
+    bot4 = Pifight.Referee.get_bot(4)
     bots = %{bot1: %{health: 100, x: 450, y: 50},
       bot2: %{health: 51, x: 40, y: 40},
       bot3: %{health: 84, x: 150, y: 100},
