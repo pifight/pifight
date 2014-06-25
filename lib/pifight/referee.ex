@@ -17,10 +17,12 @@ defmodule Pifight.Referee do
     abot = bot(4, state)
     Robot.move(abot, %{speed: 2, heading: 90})
     :timer.apply_interval(10, Robot, :tick, [abot])
+    # state |> Map.put(:started, true) |> new_state
     noreply
   end
 
-  def started?(state) do
+  defcall started, state: state do
+    state.started
   end
 
   def bot(index, state) do
