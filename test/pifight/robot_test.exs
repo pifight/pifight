@@ -27,6 +27,15 @@ defmodule Pifight.RobotTest do
     tick_until_heads_right(bot)
   end
 
+  test "autotick" do
+    {:ok, bot} = Robot.start(%{x: 200, y: 200})
+    Robot.move(bot, %{speed: 2, heading: 90})
+    :timer.apply_interval(10, Robot, :tick, [bot])
+    :timer.sleep(500)
+    [x, y] = Robot.position(bot)
+    assert x >= 240
+  end
+
   def tick_until_heads_left(bot) do
     [x, y] = Robot.position(bot)
     lt = &(&1 < &2)
