@@ -2,6 +2,7 @@
 
 (Not part of MVP but much needed.)
 
+- ExLager for logging
 - unit tests and CI for js
 - bots register themselves
 - registration count capped

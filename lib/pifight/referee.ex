@@ -14,7 +14,7 @@ defmodule Pifight.Referee do
   end
 
   defcast bout_start, state: state do
-    unless started(state) do
+    unless started?(state) do
       abot = bot(4, state)
       Robot.move(abot, %{speed: 2, heading: 90})
       :timer.apply_interval(100, Robot, :tick, [abot])
@@ -24,7 +24,7 @@ defmodule Pifight.Referee do
 
   #####
 
-  def started(state) do
+  def started?(state) do
     state.started
   end
 
