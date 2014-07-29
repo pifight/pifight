@@ -2,14 +2,17 @@ defmodule Pifight.RobotTest do
   use ExUnit.Case
   alias Pifight.Robot, as: Robot
   alias Pifight.Arena, as: Arena
+  alias Pifight.Contestant, as: Contestant
 
   test "starting position" do
-    {:ok, bot} = Robot.start(%{x: 200, y: 200})
+    {:ok, contestant} = Contestant.start
+    {:ok, bot} = Robot.start(%{x: 200, y: 200, contestant: contestant})
     assert Robot.position(bot) == [200, 200]
   end
 
   test "move one tick at 90 degrees" do
-    {:ok, bot} = Robot.start(%{x: 200, y: 200})
+    {:ok, contestant} = Contestant.start
+    {:ok, bot} = Robot.start(%{x: 200, y: 200, contestant: contestant})
     Robot.move(bot, %{speed: 2, heading: 90})
     Robot.tick(bot)
     assert Robot.position(bot) == [203, 200]

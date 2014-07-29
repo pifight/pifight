@@ -2,15 +2,25 @@ defmodule Pifight.ContestantTest do
   use ExUnit.Case
   alias Pifight.Robot, as: Robot
   alias Pifight.Arena, as: Arena
+  alias Pifight.Contestant, as: Contestant
 
-  test "reverse direction at arena right edge" do
-    {:ok, bot} = Robot.start(%{x: 200, y: 200})
+  setup do
+    {:ok, contestant} = Contestant.start
+    {:ok, [contestant: contestant]}
+  end
+
+  test "nothing at all", context do
+    Contestant.collision(context[:contestant])
+  end
+
+  test "reverse direction at arena right edge", context do
+    {:ok, bot} = Robot.start(%{x: 200, y: 200, contestant: context[:contestant]})
     Robot.move(bot, %{speed: 2, heading: 90})
     tick_until_heads_left(bot)
   end
 
-  test "reverse direction at arena left edge" do
-    {:ok, bot} = Robot.start(%{x: 200, y: 200})
+  test "reverse direction at arena left edge", context do
+    {:ok, bot} = Robot.start(%{x: 200, y: 200, contestant: context[:contestant]})
     Robot.move(bot, %{speed: -2, heading: 90})
     tick_until_heads_right(bot)
   end

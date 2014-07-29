@@ -1,10 +1,12 @@
 defmodule Pifight.Referee do
   use ExActor.GenServer, export: :referee
   alias Pifight.Robot, as: Robot
+  alias Pifight.Contestant, as: Contestant
 
 
   definit do
-    {:ok, bot} = Robot.start(%{x: 200, y: 200})
+    {:ok, contestant} = Contestant.start
+    {:ok, bot} = Robot.start(%{x: 200, y: 200, contestant: contestant})
     initial_state(%{started: false, bots: [bot]})
   end
 

@@ -1,6 +1,7 @@
 defmodule Pifight.Robot do
   use ExActor.GenServer
   alias Pifight.Arena, as: Arena
+  alias Pifight.Contestant, as: Contestant
 
   definit arg do
     arg |> Map.merge(%{speed: 0, heading: 0}) |> initial_state
@@ -21,6 +22,7 @@ defmodule Pifight.Robot do
         1
       {:boom, a, _} ->
         new_x = a
+        Contestant.collision(state.contestant)
         new_speed = -state.speed
     end
 

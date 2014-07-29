@@ -2,6 +2,10 @@
 
 ## Pending for 0.2.0
 
+- Contestant/Robot communication
+- True 2-axis movement
+- Multiple simultaneous bots in motion
+
 - BE processes move commands
 - BE updates bot positions based on movement
 - BE detects bot collisions w walls
