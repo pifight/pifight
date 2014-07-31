@@ -4,12 +4,13 @@ defmodule Pifight.Robot do
   alias Pifight.Contestant, as: Contestant
 
   definit arg do
-    arg |> Map.merge(%{speed: 0, heading: 0}) |> initial_state
+    arg |> Map.merge(%{speed: 0, heading: 0, health: 100}) |> initial_state
   end
 
   defcall position, state: state, do: reply([state.x, state.y])
-
   defcall speed, state: state, do: reply([state.speed, state.heading])
+  defcall label, state: state, do: reply(state.label)
+  defcall health, state: state, do: reply(state.health)
 
   defcast move(%{speed: speed, heading: heading}), state: state do
     state |> Map.merge(%{speed: speed, heading: heading}) |> new_state
@@ -33,6 +34,10 @@ defmodule Pifight.Robot do
     Map.put(:y, new_y) |>
     Map.put(:speed, new_speed) |>
     new_state
+  end
+
+  defcast damage(amount), state: state do
+    state |> Map.put(:health, (state.health - amount)) |> new_state
   end
 
   def to_radians(degrees) do

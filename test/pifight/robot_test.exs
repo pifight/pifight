@@ -6,8 +6,12 @@ defmodule Pifight.RobotTest do
 
   setup do
     {:ok, contestant} = Contestant.start
-    {:ok, bot} = Robot.start(%{x: 200, y: 200, contestant: contestant})
+    {:ok, bot} = Robot.start(%{x: 200, y: 200, contestant: contestant, label: :bot1})
     {:ok, [bot: bot]}
+  end
+
+  test "knows its label", context do
+    assert Robot.label(context[:bot]) == :bot1
   end
 
   test "update_position" do

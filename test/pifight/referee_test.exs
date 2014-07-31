@@ -2,6 +2,7 @@ defmodule Pifight.RefereeTest do
   use ExUnit.Case
   alias Pifight.Robot, as: Robot
   alias Pifight.Referee, as: Referee
+  alias Pifight.Arena, as: Arena
 
   test "has a bot" do
     bot = Referee.get_bot(1)
@@ -21,5 +22,11 @@ defmodule Pifight.RefereeTest do
     bot1 = Referee.get_bot(1)
     bot2 = Referee.get_bot(2)
     assert bot1 != bot2
+  end
+
+  test "random_position" do
+    [a, b] = Referee.random_position
+    assert a >= Arena.min_x
+    assert a <= Arena.max_x
   end
 end

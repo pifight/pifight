@@ -13,6 +13,12 @@ defmodule PifightTest do
 
   test "serving bot state" do
     botstate = fetch_bot_state
+    assert botstate.bots.bot3.health == 100
+
+    bot_pid = Pifight.Referee.get_bot(3)
+
+    Pifight.Robot.damage(bot_pid, 16)
+    botstate = fetch_bot_state
     assert botstate.bots.bot3.health == 84
   end
 
