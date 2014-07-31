@@ -22,14 +22,21 @@ defmodule Pifight.Referee do
 
   defcast bout_start, state: state do
     unless started?(state) do
-      abot = bot(4, state)
-      Robot.move(abot, %{speed: 2, heading: 90})
-      :timer.apply_interval(100, Robot, :tick, [abot])
+      start_bots(state.bots)
     end
     state |> Map.put(:started, true) |> new_state
   end
 
   #####
+
+  def start_bots([]) do
+  end
+
+  def start_bots([h|t]) do
+    Robot.move(h, %{speed: 2, heading: 90})
+    :timer.apply_interval(100, Robot, :tick, [h])
+    start_bots(t)
+  end
 
   def started?(state) do
     state.started

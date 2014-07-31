@@ -15,10 +15,11 @@ defmodule Pifight.Controllers.Bots do
     Pifight.Referee.bout_start
     bot3 = Pifight.Referee.get_bot(3)
     bot4 = Pifight.Referee.get_bot(4)
+    [a , b] = Pifight.Robot.position(bot3)
     [x, y] = Pifight.Robot.position(bot4)
     bots = %{bot1: %{health: 100, x: 450, y: 50},
       bot2: %{health: 51, x: 40, y: 40},
-      bot3: %{health: 84, x: 150, y: 100},
+      bot3: %{health: 84, x: a, y: b},
       bot4: %{health: 82, x: x, y: y},
       bot5: %{health: 15, x: 370, y: 220}}
     events = [{:ping, :bot1}, {:boom, 200, 200}]
