@@ -5,13 +5,18 @@ defmodule Pifight.Referee do
 
 
   definit do
+    # I know, I know.
     {:ok, contestant} = Contestant.start
-    {:ok, bot} = Robot.start(%{x: 200, y: 200, contestant: contestant})
-    initial_state(%{started: false, bots: [bot]})
+    {:ok, bot1} = Robot.start(%{x: 10, y: 110, contestant: contestant})
+    {:ok, bot2} = Robot.start(%{x: 50, y: 50, contestant: contestant})
+    {:ok, bot3} = Robot.start(%{x: 200, y: 40, contestant: contestant})
+    {:ok, bot4} = Robot.start(%{x: 200, y: 200, contestant: contestant})
+    {:ok, bot5} = Robot.start(%{x: 330, y: 32, contestant: contestant})
+    initial_state(%{started: false, bots: [bot1, bot2, bot3, bot4, bot5]})
   end
 
-  defcall get_bot(_index), state: state do
-    b = bot(4, state)
+  defcall get_bot(index), state: state do
+    b = bot(index, state)
     reply(b)
   end
 
@@ -31,6 +36,6 @@ defmodule Pifight.Referee do
   end
 
   def bot(index, state) do
-    bot = state |> Map.get(:bots) |> List.first
+    bot = state |> Map.get(:bots) |> Enum.at(index-1)
   end
 end
