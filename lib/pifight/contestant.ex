@@ -6,8 +6,9 @@ defmodule Pifight.Contestant do
     initial_state(%{})
   end
 
-  defcast collision, state: state do
-    IO.puts "I LIKE TACOS"
+  defcast collision(bot), state: state do
+    [speed, heading] = Robot.speed(bot)
+    Robot.move(bot, %{speed: -speed, heading: heading})
     new_state(state)
   end
 

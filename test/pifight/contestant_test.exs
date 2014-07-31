@@ -9,10 +9,6 @@ defmodule Pifight.ContestantTest do
     {:ok, [contestant: contestant]}
   end
 
-  test "nothing at all", context do
-    Contestant.collision(context[:contestant])
-  end
-
   test "reverse direction at arena right edge", context do
     {:ok, bot} = Robot.start(%{x: 200, y: 200, contestant: context[:contestant]})
     Robot.move(bot, %{speed: 2, heading: 90})
